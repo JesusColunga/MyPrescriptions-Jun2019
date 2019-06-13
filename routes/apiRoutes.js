@@ -1,3 +1,5 @@
+// routes/apiRoutes.js
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -21,4 +23,13 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+
+  //------------------------------------------------------
+  // Create a new Medico
+  app.post("/api/medicos", function(req, res) {
+    db.Medico.create(req.body).then(function(dbResult) {
+      res.json(dbResult);
+    });
+  });
+  //------------------------------------------------------
 };

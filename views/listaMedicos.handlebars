@@ -1,11 +1,12 @@
-<!-- views/index.handlebars -->
+<!-- views/listaMedicos.handlebars -->
 
 <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
+        <h1> Doctor Prescription </h1>
+        <h2> {{msg}} </h2>
+        
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="example-text">Example Text</label>
@@ -26,27 +27,13 @@
           </li>
           {{/each}}
         </ul>
-        <!-- ------------------------------------------------- -->
-        <br>
-        <hr>
-        <br>
-        <h1> Doctor Prescription </h1>
-        <br>
-        <br>
-        <a href="/medicos"        > Registro para Médicos           </a> <br>
-        <a href="/accesoMedicos"  > Acceso para Médicos (login)     </a> <br>
-        <a href="/menuMedicos"    > Menú Principal para Médicos     </a> <br>
-        <a href="/listaMedicos"   > Consulta de Médicos disponibles </a> <br>
-        <a href="/pacientes"      > Registro de Pacientes           </a> <br>
-        <a href="/recetas"        > Registro de Recetas             </a> <br>
-        <br>
-        <hr>
-        <br>
-        <!-- ------------------------------------------------- -->
       </div>
     </div>
   </div>
 </div>
+
+<hr>
+<a href="/">← Back To Home</a>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

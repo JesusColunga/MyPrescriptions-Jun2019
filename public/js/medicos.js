@@ -1,32 +1,37 @@
-// public/js/index.js
+// public/js/medicos.js
 
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $medNombre = $("#med-nombre");
+var $medCorreo = $("#med-correo");
+var $medTelefono = $("#med-telefono");
+var $medUsuario = $("#med-usuario");
+var $medContrasena = $("#med-contrasena");
+var $medCedula = $("#med-cedula");
+
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $medList = $("#med-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveMed: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/medicos",
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getMed: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/medicos",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteMed: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/medicos/" + id,
       type: "DELETE"
     });
   }
@@ -34,16 +39,16 @@ var API = {
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+  API.getMed().then(function(data) {
+    var $registros = data.map(function(reg) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(reg.nombre)
+        .attr("href", "/example/" + reg.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": reg.id
         })
         .append($a);
 
@@ -57,7 +62,7 @@ var refreshExamples = function() {
     });
 
     $exampleList.empty();
-    $exampleList.append($examples);
+    $exampleList.append($registros);
   });
 };
 

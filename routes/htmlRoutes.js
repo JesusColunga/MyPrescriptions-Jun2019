@@ -1,3 +1,5 @@
+// routes/htmlRoutes.js
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -19,6 +21,63 @@ module.exports = function(app) {
       });
     });
   });
+
+  //-----------------------------------------
+  app.get("/medicos", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("medicos", {
+        msg: "Registro para Médicos",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/accesoMedicos", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("accesoMedicos", {
+        msg: "Acceso para Médicos (login)",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/menuMedicos", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("menuMedicos", {
+        msg: "Menú Principal para Médicos",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/listaMedicos", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("listaMedicos", {
+        msg: "Consulta de Médicos disponibles",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/pacientes", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("pacientes", {
+        msg: "Registro de Pacientes",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/recetas", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("recetas", {
+        msg: "Registro de Recetas",
+        examples: dbExamples
+      });
+    });
+  });
+
+  //-----------------------------------------
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
