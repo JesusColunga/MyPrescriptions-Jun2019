@@ -5,10 +5,12 @@ module.exports = function(sequelize, DataTypes) {
     "Prescription",
     {
       idDoctor: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
       },
       idPatient: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
       },
       weight: {
         type: DataTypes.INTEGER,
