@@ -70,7 +70,7 @@ module.exports = function(app) {
 
   app.get("/prescriptions", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
-      res.render("prescription", {
+      res.render("prescriptions", {
         msg: "Prescriptions Register",
         examples: dbExamples
       });
