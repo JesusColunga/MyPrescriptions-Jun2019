@@ -41,14 +41,14 @@ module.exports = function(sequelize, DataTypes) {
           }
         }
       },
-      casefile: {
+      observations: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
           notEmpty: false,
           len: {
             args: [1],
-            msg: "No casefile"
+            msg: "No observations"
           }
         }
       }
