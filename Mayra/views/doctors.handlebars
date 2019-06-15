@@ -1,0 +1,63 @@
+<!-- views/medicos.handlebars -->
+
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1> Doctor Prescription </h1>
+        <h2> {{msg}} </h2>
+
+        <form class="clearfix mb-4" action="POST">
+          <!-- -- Nombre ----- -->
+          <div class="form-group">
+            <label for="med-nombre"> Doctors' Name </label>
+            <input type="text" id="med-name" class="form-control" aria-describedby="med-nombre" placeholder="Name">
+          </div>
+          <!-- -- Correo ----- -->
+          <div class="form-group">
+            <label for="med-correo"> Email </label>
+            <input type="text" id="med-email" class="form-control" aria-describedby="med-correo" placeholder="Email@example.com">
+          </div>
+          <!-- -- Telefono --- -->
+          <div class="form-group">
+            <label for="med-telefono"> Phone </label>
+            <input type="text" id="med-phone" class="form-control" aria-describedby="med-telefono" placeholder="555 555 5556">
+          </div>
+          <!-- -- Usuario ---- -->
+          <div class="form-group">
+            <label for="med-usuario"> Username</label>
+            <input type="text" id="med-username" class="form-control" aria-describedby="med-usuario" placeholder="username">
+          </div>
+          <!-- -- Contraseña - -->
+          <div class="form-group">
+            <label for="med-contrasena"> Password </label>
+            <input type="password" id="med-password" class="form-control" aria-describedby="med-contrasena" placeholder="password">
+          </div>
+          <!-- -- Cédula Prof- -->
+          <div class="form-group">
+            <label for="med-cedula"> Professional License </label>
+            <input type="text" id="med-license" class="form-control" aria-describedby="med-cedula" placeholder="Professional License">
+          </div>
+          <!-- --------------- -->
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+
+        <h3>Doctors:</h3>
+        <ul id="med-list" class="list-group">
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+<a href="/">← Back To Home</a>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
