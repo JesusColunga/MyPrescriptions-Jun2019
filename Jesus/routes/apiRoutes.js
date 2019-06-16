@@ -47,7 +47,7 @@ module.exports = function(app) {
     });
   });
 
-//------------------------------------------------------
+  //------------------------------------------------------
   // Patients
   //------------------------------------------------------
   app.get("/api/patients", function(req, res) {
@@ -66,6 +66,29 @@ module.exports = function(app) {
   // Delete by id ---------------------
   app.delete("/api/patients/:id", function(req, res) {
     db.Patient.destroy({ where: { id: req.params.id } }).then(function(dbResult) {
+      res.json(dbResult);
+    });
+  });
+
+  //------------------------------------------------------
+  // Prescriptions
+  //------------------------------------------------------
+  app.get("/api/prescriptions", function(req, res) {
+    db.Prescription.findAll({}).then(function(dbResult) {
+      res.json(dbResult);
+    });
+  });
+
+  // Create ---------------------------
+  app.post("/api/prescriptions", function(req, res) {
+    db.Prescription.create(req.body).then(function(dbResult) {
+      res.json(dbResult);
+    });
+  });
+
+  // Delete by id ---------------------
+  app.delete("/api/prescriptions/:id", function(req, res) {
+    db.Prescription.destroy({ where: { id: req.params.id } }).then(function(dbResult) {
       res.json(dbResult);
     });
   });

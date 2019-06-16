@@ -1,39 +1,35 @@
-// public/js/doctors.js
+// public/js/prescriptions.js
 
 // Get references to page elements
-var $medFirstname = $("#med-firstname");
-var $medLastname = $("#med-lastname");
-var $medEmail = $("#med-email");
-var $medPhone = $("#med-phone");
-var $medUsername = $("#med-username");
-var $medPassword = $("#med-password");
-var $medLicense = $("#med-license");
+var $presWeight = $("#pat-weight");
+var $presHeight = $("#pat-height");
+var $presPulse = $("#pat-pulse");
+var $presPrescription = $("#med-prescription");
+var $presObservations = $("#med-observations");
 
 var $submitBtn = $("#submit");
-var $medList = $("#med-list");
-console.log("(public/js/doctors.js)", $medFirstname, $medLastname);
 //----------------------------------------------------------------------
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveMed: function(record) {
+  savePres: function(record) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/doctors",
+      url: "api/prescriptions",
       data: JSON.stringify(record)
     });
   },
-  getMed: function() {
+  getPres: function() {
     return $.ajax({
-      url: "api/doctors",
+      url: "api/prescriptions",
       type: "GET"
     });
   },
-  deleteMed: function(id) {
+  deletePres: function(id) {
     return $.ajax({
-      url: "api/doctors/" + id,
+      url: "api/prescriptions/" + id,
       type: "DELETE"
     });
   }
@@ -41,8 +37,9 @@ var API = {
 
 //----------------------------------------------------------------------
 // refreshMeds gets new examples from the db and repopulates the list
-var refreshMeds = function() {
-  API.getMed().then(function(data) {
+/*
+var refreshPats = function() {
+  API.getPat().then(function(data) {
     var $registros = data.map(function(reg) {
       var $a = $("<a>")
         .text(reg.firstname + " " + reg.lastname)
@@ -68,7 +65,7 @@ var refreshMeds = function() {
     $medList.append($registros);
   });
 };
-
+*/
 //----------------------------------------------------------------------
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
@@ -76,47 +73,48 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var reg = {
-    firstname: $medFirstname.val().trim(),
-    lastname: $medLastname.val().trim(),
-    email: $medEmail.val().trim(),
-    phone: $medPhone.val().trim(),
-    username: $medUsername.val().trim(),
-    password: $medPassword.val().trim(),
-    license: $medLicense.val().trim(),
+    /*
+    idDoctor: 
+    idPatient: 
+    */
+    weight: $presWeight.val().trim(),
+    height: $presHeight.val().trim(),
+    pulse: $presPulse.val().trim(),
+    prescription: $presPrescription.val().trim(),
+    observations: $presObservations.val().trim()
   };
 
-//  if (!(reg.text && reg.description)) {
-//    alert("You must enter an example text and description!");
-//    return;
-//  }
+  //  if (!(reg.text && reg.description)) {
+  //    alert("You must enter an example text and description!");
+  //    return;
+  //  }
 
-  API.saveMed(reg).then(function() {
-    refreshMeds();
+  API.savePres(reg).then(function() {
+    //refreshPats();
   });
 
-  $medFirstname.val("");
-  $medLastname.val("");
-  $medEmail.val("");
-  $medPhone.val("");
-  $medUsername.val("");
-  $medPassword.val("");
-  $medLicense.val("");
+  $presWeight.val("");
+  $presHeight.val("");
+  $presPulse.val("");
+  $presPrescription.val("");
+  $presObservations.val("");
 };
 
 //----------------------------------------------------------------------
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
+/*
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteMed(idToDelete).then(function() {
-    refreshMeds();
+  API.deletePat(idToDelete).then(function() {
+    //refreshPats();
   });
 };
-
+*/
 //----------------------------------------------------------------------
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$medList.on("click", ".delete", handleDeleteBtnClick);
+//$medList.on("click", ".delete", handleDeleteBtnClick);

@@ -1,5 +1,30 @@
-<!-- views/listaMedicos.handlebars -->
+<!-- views/doctorsList.handlebars -->
 
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h1> Doctor Prescription </h1>
+        <h2> {{msg}} </h2>
+<!--
+        <h3>Doctors:</h3>
+-->        
+        <ul id="med-list" class="list-group">
+          {{#each recs}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="doctors/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
+            <!--
+            <button class="btn btn-danger float-right delete">ｘ</button>
+            -->
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--
 <script src="/js/index.js"></script>
+-->

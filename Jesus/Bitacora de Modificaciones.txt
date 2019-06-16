@@ -67,3 +67,24 @@ Sábado 15/Jun/2019 21 hrs
 - routes/apiRoutes.js
   Agregar rutas para pacientes.
 
+------------------------------------
+Hasta aquí modificaciones
+incluídas en el commit del
+Sábado 15/Jun/2019 22 hrs
+------------------------------------
+
+- routes/apiRoutes.js
+  Agregar rutas para recetas.
+
+- public/js/prescriptions.js
+  Muchos cambios para recetas.
+
+- views/doctorsList.handlebars
+  Código para mostrar listado de doctores.
+
+------------------------------------
+Hasta aquí modificaciones
+incluídas en el commit del
+Sábado 15/Jun/2019 23:40 hrs
+------------------------------------
+
