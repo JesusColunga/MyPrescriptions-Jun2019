@@ -22,57 +22,61 @@ module.exports = function(app) {
     });
   });
 
-  //-----------------------------------------
+  //------------------------------------------------------
+  // Doctors
+  //------------------------------------------------------
   app.get("/doctors", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Doctor.findAll({}).then(function(dbRecords) {
       res.render("doctors", {
         msg: "Doctors Register",
-        examples: dbExamples
+        recs: dbRecords
       });
     });
   });
 
   app.get("/doctorsLogin", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Doctor.findAll({}).then(function(dbRecords) {
       res.render("doctorsLogin", {
         msg: "Doctors' Login",
-        examples: dbExamples
+        recs: dbRecords
       });
     });
   });
 
   app.get("/doctorsMenu", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Doctor.findAll({}).then(function(dbRecords) {
       res.render("doctorsMenu", {
         msg: "Doctors' Main Menu",
-        examples: dbExamples
+        recs: dbRecords
       });
     });
   });
 
   app.get("/doctorsList", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Doctor.findAll({}).then(function(dbRecords) {
       res.render("doctorsList", {
         msg: "Available Doctors",
-        examples: dbExamples
+        recs: dbRecords
       });
     });
   });
 
+  //-----------------------------------------
+
   app.get("/patients", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Patient.findAll({}).then(function(dbRecords) {
       res.render("patients", {
         msg: "Patients Register",
-        examples: dbExamples
+        recs: dbRecords
       });
     });
   });
 
   app.get("/prescriptions", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Prescription.findAll({}).then(function(dbRecords) {
       res.render("prescriptions", {
         msg: "Prescriptions Register",
-        examples: dbExamples
+        recs: dbRecords
       });
     });
   });

@@ -21,14 +21,6 @@ if (config.use_env_variable) {
   );
 }
 
-/*
-var sequelize = new Sequelize(
-    process.env.DATABASE,
-    process.env.USERNAME,
-    process.env.PASSWORD,
-    {host: process.env.HOST}
-  );
-*/
 fs.readdirSync(__dirname)
   .filter(function(file) {
     return (

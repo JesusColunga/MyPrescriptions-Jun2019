@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Doctor = sequelize.define("Doctor", {
-    name: {
+    firstname: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -10,6 +10,18 @@ module.exports = function(sequelize, DataTypes) {
         len: {
           args: [1],
           msg: "No name provided"
+        }
+      }
+    },
+
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: false,
+        len: {
+          args: [1],
+          msg: "No last name provided"
         }
       }
     },

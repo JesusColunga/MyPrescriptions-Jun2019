@@ -1,7 +1,7 @@
-// models/Patient.js
+// models/doctor.js
 
 module.exports = function(sequelize, DataTypes) {
-  var Patient = sequelize.define("Patient", {
+  var Doctor = sequelize.define("Doctor", {
     firstname: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
+
     lastname: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,18 +25,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
-    birthdate: DataTypes.DATEONLY,
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: false,
-        len: {
-          args: [1],
-          msg: "No gender provided"
-        }
-      }
-    },
+
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -45,22 +35,41 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       isNumeric: true
+    },
+    username: {
+      type: DataTypes.STRING,
+      isAlphanumeric: true,
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: false,
+        len: {
+          args: [5],
+          msg: "At least 5 characters"
+        }
+      }
+    },
+    license: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: false,
+        len: {
+          args: [1],
+          msg: "No license provided"
+        }
+      }
     }
   });
 
-  Patient.associate = function(models) {
-    Patient.hasMany(models.Prescription, {
+  Doctor.associate = function(models) {
+    Doctor.hasMany(models.Patient, {
       onDelete: "cascade"
     });
   };
 
-  Patient.associate = function(models) {
-    Patient.belongsTo(models.Doctor, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
-
-  return Patient;
+  return Doctor;
 };

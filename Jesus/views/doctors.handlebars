@@ -1,4 +1,4 @@
-<!-- views/medicos.handlebars -->
+<!-- views/doctors.handlebars -->
 
 <div id="home">
   <div class="container">
@@ -48,9 +48,9 @@
 
         <h3>Doctors:</h3>
         <ul id="med-list" class="list-group">
-          {{#each examples}}
+          {{#each recs}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
+            <a href="doctors/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
@@ -64,4 +64,4 @@
 <a href="/">← Back To Home</a>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/doctors.js"></script>
