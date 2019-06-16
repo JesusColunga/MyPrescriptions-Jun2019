@@ -49,3 +49,21 @@ Sábado 15/Jun/2019
      cambio /js/index.js
      a      /js/prescriptions.js
 
+------------------------------------
+Hasta aquí modificaciones
+incluídas en el commit del
+Sábado 15/Jun/2019 21 hrs
+------------------------------------
+
+- views/patients.handlebars
+  a) Modificar el nombre del archivo en la linea 1
+  b) Linea 36
+     cambio /js/index.js
+     a      /js/patients.js
+
+- public/js/patients.js
+  Muchos cambios para pacientes.
+
+- routes/apiRoutes.js
+  Agregar rutas para pacientes.
+
