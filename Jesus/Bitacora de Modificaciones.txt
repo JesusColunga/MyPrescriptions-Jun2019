@@ -1,0 +1,51 @@
+Bitacora de Modificaciones
+
+Este documento contiene los cambios realizados al proyecto.
+
+Sábado 15/Jun/2019
+==================
+
+- Descarga de GitHub 15/Jun/2019 aprox. 14 hrs.
+
+- models/doctor.js
+  Linea 17
+  cambio lastName
+  a      lastname
+  para uniformidad en todos los campos.
+
+- renombrar archivo
+  public/js
+  de medicos.js
+  a  doctors.js
+  + cambios en las rutinas
+
+- views/doctors.handlebars
+  a) Modificar el nombre del archivo en la linea 1
+  b) Linea 67
+     cambio /js/index.js
+     a      /js/doctors.js
+     Estaba incorrecto.
+  c) Modificar lineas 51-56
+          {{#each recs}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="doctors/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+
+
+- public/js/doctors.js
+  muchos cambios para médicos.
+
+- routes/apiRoutes.js
+  agregar rutas para médicos.
+
+- routes/htmlRoutes.js
+  agregar rutas para médicos.
+
+- views/prescriptions.handlebars
+  a) Modificar el nombre del archivo en la linea 1
+  b) Linea 36
+     cambio /js/index.js
+     a      /js/prescriptions.js
+

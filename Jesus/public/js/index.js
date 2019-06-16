@@ -1,37 +1,32 @@
-// public/js/medicos.js
+// public/js/index.js
 
 // Get references to page elements
-var $medNombre = $("#med-nombre");
-var $medCorreo = $("#med-correo");
-var $medTelefono = $("#med-telefono");
-var $medUsuario = $("#med-usuario");
-var $medContrasena = $("#med-contrasena");
-var $medCedula = $("#med-cedula");
-
+var $exampleText = $("#example-text");
+var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-var $medList = $("#med-list");
+var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveMed: function(example) {
+  saveExample: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/medicos",
+      url: "api/examples",
       data: JSON.stringify(example)
     });
   },
-  getMed: function() {
+  getExamples: function() {
     return $.ajax({
-      url: "api/medicos",
+      url: "api/examples",
       type: "GET"
     });
   },
-  deleteMed: function(id) {
+  deleteExample: function(id) {
     return $.ajax({
-      url: "api/medicos/" + id,
+      url: "api/examples/" + id,
       type: "DELETE"
     });
   }
@@ -39,16 +34,16 @@ var API = {
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
-  API.getMed().then(function(data) {
-    var $registros = data.map(function(reg) {
+  API.getExamples().then(function(data) {
+    var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(reg.nombre)
-        .attr("href", "/example/" + reg.id);
+        .text(example.text)
+        .attr("href", "/example/" + example.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": reg.id
+          "data-id": example.id
         })
         .append($a);
 
@@ -62,39 +57,31 @@ var refreshExamples = function() {
     });
 
     $exampleList.empty();
-    $exampleList.append($registros);
+    $exampleList.append($examples);
   });
 };
 
-// handleFormSubmit is called whenever we submit a new Medico
+// handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var registro = {
-    nombre: $medNombre.val().trim(),
-    correo: $medCorreo.val().trim(),
-    telefono: $medTelefono.val().trim(),
-    usuario: $medUsuario.val().trim(),
-    contrasena: $medContrasena.val().trim(),
-    cedula: $medCedula.val().trim()
+  var example = {
+    text: $exampleText.val().trim(),
+    description: $exampleDescription.val().trim()
   };
-/*
-  if (!(registro.text && registro.description)) {
+
+  if (!(example.text && example.description)) {
     alert("You must enter an example text and description!");
     return;
   }
-*/
-  API.saveExample(registro).then(function() {
+
+  API.saveExample(example).then(function() {
     refreshExamples();
   });
 
-  $medNombre.val("");
-  $medCorreo.val("");
-  medTelefono.val("");
-  medUsuario.val("");
-  medContrasena.val("");
-  medCedula.val("");
+  $exampleText.val("");
+  $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

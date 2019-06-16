@@ -1,0 +1,36 @@
+<!-- views/prescriptions.handlebars -->
+
+<!--To add prescriptions-->
+<div class="card m-5">
+  <form>
+    <div class="form-group m-2">
+      <label for="patweight">Patient's Weight (kg):</label>
+      <input type="text" class="form-control" id="pat-weight" aria-describedby="patWeight" placeholder="72">
+    </div>
+
+    <div class="form-group m-2">
+      <label for="patHeight">Patient's Height (cm):</label>
+      <input type="text" class="form-control" id="pat-height" aria-describedby="patHeight" placeholder="172">
+    </div>
+
+    <div class="form-group m-2">
+      <label for="patPulse">Patient's Heart Rate (bpm): </label>
+      <input type="text" class="form-control" id="pat-pulse"  aria-describedby="patPulse" placeholder="">
+    </div>
+    <div class="form-group">
+    <label for="Prescription">Prescription:</label>
+    <textarea class="form-control" id="med-prescription" rows="5"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="Observations">Observations:</label>
+    <textarea class="form-control" id="med-observations" rows="3"></textarea>
+  </div>
+
+    <button type="submit" id="submit" class="btn btn-primary float-right">Create Prescription</button>
+  </form>
+</div>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/prescriptions.js"></script>
