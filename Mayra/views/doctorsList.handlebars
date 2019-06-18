@@ -1,5 +1,24 @@
-<!-- views/listaMedicos.handlebars -->
+<!-- views/doctorsList.handlebars -->
 
+<div class="row">
+  <div class="col-8 offset-2">
+    <p> These are are our available doctors: </p>
+    <br>
+    <ul id="med-list" class="list-group">
+      {{#each recs}}
+      <li data-id="{{this.id}}" class="list-group-item border-0">
+        <a href="doctors/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
+        <hr>
+        <!--
+            <button class="btn btn-danger float-right delete">ｘ</button>
+            -->
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--
 <script src="/js/index.js"></script>
+-->

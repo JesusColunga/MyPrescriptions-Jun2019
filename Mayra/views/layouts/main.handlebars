@@ -34,16 +34,17 @@
                             </li>
                         </ul>
 
-                        <div class="md-form my-0">
-                            <button type="button" class="btn btn-outline-light btn-sm">Login</button>
-                            <button type="button" class="btn btn-outline-light btn-sm">Register</button>
+                        <div class="md-form my-0 loginStatus">
+                           <a href="/doctorsLogin"><button type='button' class='btn btn-outline-light btn-sm btnlogin'>Login</button></a>
+                            <a href="/doctors"><button type='button' class='btn btn-outline-light btn-sm'>Register</button></a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!--End Nav Container-->
             <div class="jumbotron bg-transparent">
-                <h1 class="text-white">Welcome!</h1>
+                <h1 class="text-white msg">Medical Prescriptions</h1>
+                <h3 class="mod-text text-white">{{msg}}</h3>
             </div>
         </div>
         <!--End container-->

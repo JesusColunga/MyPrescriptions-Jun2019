@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
-    lastName: {
+    lastname: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
