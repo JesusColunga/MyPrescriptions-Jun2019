@@ -1,23 +1,56 @@
-<!-- views/menuMedicos.handlebars -->
+<!-- views/doctorsMenu.handlebars -->
 
 <div class="row m-5">
-  <div class="col-6 p-5">
-    <a href="#">
-    <div class="card text-center">
-      <h2>Consult Patient's List</h2>
-      <p>consult your patients list</p>
-      </a>
-    </div>
+  <div id="nombreMedico">
   </div>
+
+  <!-- ------------------------------------------------- -->
+  <button  class="btn btn-primary ml-5 mt-3 mb-4" id="logoutBtn"> Logout </button>
+  <!-- ------------------------------------------------- -->
+
   <div class="col-6 p-5">
     <a href="#">
-    <div class="card text-center">
-      <h2>Register New Patient</h2>
-      <p>Add a new patient</p>
-    </div>
+      <div class="card text-center options  border-0 bg-light">
+        <h2>Register New Patient</h2>
+        <p>Add a new patient</p>
+      </div>
     </a>
+
+  </div>
+</div>
+
+<a href="/doctorsEdit">Edit Doctor Information</a>
+<br>
+<h3>Patient's Search</h3>
+ <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+</div>
+<!-- Dentro de la lista de editar paciente, también que tenga un botón para crear la receta.
+Editar Paciente. Editar datos de un solo paciente. Botón para enviar a esa forma.-->
+<!--Botón para dar de alta-->
+
+<div class="row">
+  <div class="col-8 offset-2">
+    <p> Patient's List: </p>
+    <br>
+    <ul id="pat-list" class="list-group">
+      {{#each recs}}
+      <li data-id="{{this.id}}" class="list-group-item border-0">
+        <a href="patients/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
+        <hr>
+        <!--
+            <button class="btn btn-danger float-right delete">ｘ</button>
+            Click sobre el nombre del paciente para edición
+            -->
+
+      </li>
+      {{/each}}
+    </ul>
   </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/doctorsMenu.js"></script>

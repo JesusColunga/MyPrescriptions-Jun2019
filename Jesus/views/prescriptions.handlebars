@@ -1,36 +1,44 @@
 <!-- views/prescriptions.handlebars -->
 
 <!--To add prescriptions-->
-<div class="card m-5">
+<div class="card m-5 border-0">
   <form>
-    <div class="form-group m-2">
-      <label for="patweight">Patient's Weight (kg):</label>
-      <input type="text" class="form-control" id="pat-weight" aria-describedby="patWeight" placeholder="72">
+    <div class="form-group my-1">
+      <label class="mr-sm-2" for="selectPatient">Select a Patient</label>
+      <select class="custom-select mr-sm-2" id="selectPatient">
+      </select>
     </div>
+    <div class="row">
+      <div class="form-group m-2 col">
+        <label for="patweight">Patient's Weight (kg):</label>
+        <input type="text" class="form-control" id="pat-weight" aria-describedby="patWeight" placeholder="72">
+      </div>
 
-    <div class="form-group m-2">
-      <label for="patHeight">Patient's Height (cm):</label>
-      <input type="text" class="form-control" id="pat-height" aria-describedby="patHeight" placeholder="172">
-    </div>
-
-    <div class="form-group m-2">
-      <label for="patPulse">Patient's Heart Rate (bpm): </label>
-      <input type="text" class="form-control" id="pat-pulse"  aria-describedby="patPulse" placeholder="">
+      <div class="form-group m-2 col">
+        <label for="patHeight">Patient's Height (cm):</label>
+        <input type="text" class="form-control" id="pat-height" aria-describedby="patHeight" placeholder="172">
+      </div>
+      <div class="form-group m-2 col">
+        <label for="patPulse">Patient's Heart Rate (bpm): </label>
+        <input type="text" class="form-control" id="pat-pulse" aria-describedby="patPulse" placeholder="">
+      </div>
     </div>
     <div class="form-group">
-    <label for="Prescription">Prescription:</label>
-    <textarea class="form-control" id="med-prescription" rows="5"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="Observations">Observations:</label>
-    <textarea class="form-control" id="med-observations" rows="3"></textarea>
-  </div>
+      <label for="Prescription">Prescription:</label>
+      <textarea class="form-control" id="med-prescription" rows="5"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="Observations">Observations:</label>
+      <textarea class="form-control" id="med-observations" rows="3"></textarea>
+    </div>
 
     <button type="submit" id="submit" class="btn btn-primary float-right">Create Prescription</button>
   </form>
 </div>
 
-
+<h3>Previous Prescriptions</h3>:
+  
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="/js/prescriptions.js"></script>

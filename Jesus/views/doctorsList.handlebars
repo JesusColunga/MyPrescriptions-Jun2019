@@ -1,26 +1,20 @@
 <!-- views/doctorsList.handlebars -->
 
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1> Doctor Prescription </h1>
-        <h2> {{msg}} </h2>
-<!--
-        <h3>Doctors:</h3>
--->        
-        <ul id="med-list" class="list-group">
-          {{#each recs}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="doctors/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
-            <!--
+<div class="row">
+  <div class="col-8 offset-2">
+    <p> These are are our available doctors: </p>
+    <br>
+    <ul id="med-list" class="list-group">
+      {{#each recs}}
+      <li data-id="{{this.id}}" class="list-group-item border-0">
+        <a href="doctors/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
+        <hr>
+        <!--
             <button class="btn btn-danger float-right delete">ｘ</button>
             -->
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
+      </li>
+      {{/each}}
+    </ul>
   </div>
 </div>
 

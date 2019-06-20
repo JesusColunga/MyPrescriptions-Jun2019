@@ -15,7 +15,9 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.render("example", {
         example: dbExample
       });
@@ -37,7 +39,7 @@ module.exports = function(app) {
   app.get("/doctorsLogin", function(req, res) {
     db.Doctor.findAll({}).then(function(dbRecords) {
       res.render("doctorsLogin", {
-        msg: "Doctors' Login",
+        msg: "Doctors Login",
         recs: dbRecords
       });
     });
@@ -46,7 +48,7 @@ module.exports = function(app) {
   app.get("/doctorsMenu", function(req, res) {
     db.Doctor.findAll({}).then(function(dbRecords) {
       res.render("doctorsMenu", {
-        msg: "Doctors' Main Menu",
+        msg: "Doctors Main Menu",
         recs: dbRecords
       });
     });

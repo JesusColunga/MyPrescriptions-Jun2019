@@ -72,7 +72,21 @@ var refreshPats = function() {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
-
+  if (
+    !$patFirstname.val().trim() ||
+    !$patLastname.val().trim() ||
+    !$patBirthdate.val().trim() ||
+    !$patGender.val().trim() ||
+    !$patEmail.val().trim() ||
+    !$patPhone.val().trim()
+  ) {
+    swal({
+      title: "Wait!",
+      text: "Please fill all the fields with the requested information",
+      icon: "error"
+    });
+    return;
+  }
   var reg = {
     firstname: $patFirstname.val().trim(),
     lastname: $patLastname.val().trim(),

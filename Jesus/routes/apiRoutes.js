@@ -19,7 +19,9 @@ module.exports = function(app) {
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.json(dbExample);
     });
   });
@@ -42,7 +44,19 @@ module.exports = function(app) {
 
   // Delete by id ---------------------
   app.delete("/api/doctors/:id", function(req, res) {
-    db.Doctor.destroy({ where: { id: req.params.id } }).then(function(dbResult) {
+    db.Doctor.destroy({ where: { id: req.params.id } }).then(function(
+      dbResult
+    ) {
+      res.json(dbResult);
+    });
+  });
+
+  // Search one doctor ---------------------
+  app.post("/api/doctorsSearchOne", function(req, res) {
+
+    db.Doctor.findOne({ where: { username: req.body.username, password: req.body.password } }).then(function(
+      dbResult
+    ) {
       res.json(dbResult);
     });
   });
@@ -65,7 +79,9 @@ module.exports = function(app) {
 
   // Delete by id ---------------------
   app.delete("/api/patients/:id", function(req, res) {
-    db.Patient.destroy({ where: { id: req.params.id } }).then(function(dbResult) {
+    db.Patient.destroy({ where: { id: req.params.id } }).then(function(
+      dbResult
+    ) {
       res.json(dbResult);
     });
   });
@@ -88,11 +104,11 @@ module.exports = function(app) {
 
   // Delete by id ---------------------
   app.delete("/api/prescriptions/:id", function(req, res) {
-    db.Prescription.destroy({ where: { id: req.params.id } }).then(function(dbResult) {
+    db.Prescription.destroy({ where: { id: req.params.id } }).then(function(
+      dbResult
+    ) {
       res.json(dbResult);
     });
   });
 
-  //------------------------------------------------------
-  //------------------------------------------------------
 };

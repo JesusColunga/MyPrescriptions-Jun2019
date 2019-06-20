@@ -73,7 +73,22 @@ var refreshMeds = function() {
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
-
+  if (
+    !$medFirstname.val().trim() ||
+    !$medLastname.val().trim() ||
+    !$medEmail.val().trim() ||
+    !$medPhone.val().trim() ||
+    !$medUsername.val().trim() ||
+    !$medPassword.val().trim() ||
+    !$medLicense.val().trim()
+  ) {
+    swal({
+      title: "Wait!",
+      text: "Please fill all the fields with the requested information",
+      icon: "error"
+    });
+    return;
+  }
   var reg = {
     firstname: $medFirstname.val().trim(),
     lastname: $medLastname.val().trim(),
@@ -81,13 +96,13 @@ var handleFormSubmit = function(event) {
     phone: $medPhone.val().trim(),
     username: $medUsername.val().trim(),
     password: $medPassword.val().trim(),
-    license: $medLicense.val().trim(),
+    license: $medLicense.val().trim()
   };
 
-//  if (!(reg.text && reg.description)) {
-//    alert("You must enter an example text and description!");
-//    return;
-//  }
+  //  if (!(reg.text && reg.description)) {
+  //    alert("You must enter an example text and description!");
+  //    return;
+  //  }
 
   API.saveMed(reg).then(function() {
     refreshMeds();
