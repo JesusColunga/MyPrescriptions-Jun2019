@@ -3,7 +3,6 @@
 // Get references to page elements
 var $medUsername = $("#username");
 var $medPassword = $("#password");
-
 var $submitBtn = $("#submit");
 //----------------------------------------------------------------------
 // The API object contains methods for each kind of request we'll make

@@ -1,17 +1,19 @@
 <!-- views/doctorsLogin.handlebars -->
-
-<div class="card m-5">
-  <form>
-    <div class="form-group m-5">
-      <label for="username">Username:</label>
-      <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Enter username">
-    </div>
-    <div class="form-group m-5">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password">
-    </div>
-    <button  class="btn btn-primary submitLogin ml-5 mt-3 mb-4" id="submit">Submit</button>
-  </form>
+<div class="container dLogin">
+  <div class="card m-5 border-0 d-flex loginWindow">
+    <h2 class="ml-5 mt-3">Login</h2>
+    <form>
+      <div class="form-group m-5">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Enter username">
+      </div>
+      <div class="form-group m-5">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+      </div>
+      <button class="btn btn-primary submitLogin mr-5 mt-3 mb-4 float-right" id="submit">Submit</button>
+    </form>
+  </div>
 </div>
 <!--
 <hr>

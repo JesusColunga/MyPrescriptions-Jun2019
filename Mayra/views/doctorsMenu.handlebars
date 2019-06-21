@@ -1,54 +1,87 @@
 <!-- views/doctorsMenu.handlebars -->
 
-<div class="row m-5">
-  <div id="nombreMedico">
-  </div>
 
-  <!-- ------------------------------------------------- -->
-  <button class="btn btn-primary ml-5 mt-3 mb-4" id="logoutBtn"> Logout </button>
-  <!-- ------------------------------------------------- -->
-
-  <div class="col-6 p-5">
-    <a href="/patients">
-      <div class="card text-center options  border-0 bg-light">
-        <h2>Register New Patient</h2>
-        <p>Add a new patient</p>
-      </div>
-    </a>
-
+<div class="container mb-5">
+  <div class="row mt-5">
+    <div class="col">
+      <p>Welcome, <span id="nombreMedico">
+  </span></p>
+    </div>
+    <div class="col">
+      <a href="/patients"><button id="prescriptionLog" class="btn btn-outline-info float-right">New Patient</button></a>
+    </div>
+    <div class="col">
+      <button class="btn btn-outline-danger float-right" id="logoutBtn"> Logout </button>
+    </div>
   </div>
 </div>
 
 <!--<a href="/doctorsEdit">Edit Doctor Information</a>-->
 <br>
-<!--<h3>Patient's Search</h3>
+<!-- <h3>Patient's Search</h3>
  <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+ </form>
 -->
-</div>
+
 <!-- Dentro de la lista de editar paciente, también que tenga un botón para crear la receta.
 Editar Paciente. Editar datos de un solo paciente. Botón para enviar a esa forma.-->
 <!--Botón para dar de alta-->
 
-<div class="row">
+<div class="container">
+  <h2>Patients: </h2>
+  <table class="table table-hover medlist" id="patientUlList">
+    <thead>
+      <tr>
+
+        <th scope="col">Last Name</th>
+        <th scope="col">First Name</th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each recs}}
+      <tr>
+        <td scope="row" data-id="{{this.id}}">{{this.lastname}}</td>
+        <td> {{this.firstname}}</td>
+        <td>
+        <button type="button" class="btn btn-outline-info float-right" id="patientDetails" data-id="{{id}}"
+          data-name="{{this.firstname}} {{this.lastname}}">
+          More Info
+        </button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+
+<!--<div class="row">
   <div class="col-8 offset-2">
     <p> Patient's List: </p>
     <br>
-    <ul id="pat-list" class="list-group">
-      {{#each recs}}
-      <li class="list-group-item border-0">
-       {{this.firstname}} {{this.lastname}}
-        
 
-       <button type="button" class="btn btn-info" id="patientDetails" data-id="{{id}}">More Info</button>
-       <hr>
-      </li>
+  
+    <div id="patientUlList">
+      {{#each recs}}
+            <button 
+            type="button" 
+            class="btn btn-info" 
+            id="patientDetails" 
+            data-id="{{id}}"
+            data-name="{{this.firstname}} {{this.lastname}}">
+              {{id}} - {{this.firstname}} {{this.lastname}}
+            </button>
+            <br>
       {{/each}}
-    </ul>
+    </div>
+    <br>
+    <br>
+  
+
   </div>
-</div>
+</div>-->
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/doctorsMenu.js"></script>
