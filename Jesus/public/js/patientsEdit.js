@@ -1,39 +1,36 @@
-// public/js/doctors.js
+// public/js/patientsEdit.js
 
 // Get references to page elements
-var $medFirstname = $("#med-firstname");
-var $medLastname = $("#med-lastname");
-var $medEmail = $("#med-email");
-var $medPhone = $("#med-phone");
-var $medUsername = $("#med-username");
-var $medPassword = $("#med-password");
-var $medSpecialty = $("#med-specialty");
-var $medLicense = $("#med-license");
-
+var $patFirstname = $("#pat-firstname");
+var $patLastname = $("#pat-lastname");
+var $patBirthdate = $("#pat-birthdate");
+var $patGender = $("#pat-gender");
+var $patEmail = $("#pat-email");
+var $patPhone = $("#pat-phone");
 var $submitBtn = $("#submit");
-var $medList = $("#med-list");
+var $createPrescription = $("#createPrescription");
 //----------------------------------------------------------------------
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveMed: function(record) {
+  savePat: function(record) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/doctors",
+      url: "api/patients",
       data: JSON.stringify(record)
     });
   },
-  getMed: function() {
+  getPat: function() {
     return $.ajax({
-      url: "api/doctors",
+      url: "api/patients",
       type: "GET"
     });
   },
-  deleteMed: function(id) {
+  deletePat: function(id) {
     return $.ajax({
-      url: "api/doctors/" + id,
+      url: "api/patients/" + id,
       type: "DELETE"
     });
   }
@@ -41,8 +38,9 @@ var API = {
 
 //----------------------------------------------------------------------
 // refreshMeds gets new examples from the db and repopulates the list
-var refreshMeds = function() {
-  API.getMed().then(function(data) {
+/*
+var refreshPats = function() {
+  API.getPat().then(function(data) {
     var $registros = data.map(function(reg) {
       var $a = $("<a>")
         .text(reg.firstname + " " + reg.lastname)
@@ -68,21 +66,19 @@ var refreshMeds = function() {
     $medList.append($registros);
   });
 };
-
+*/
 //----------------------------------------------------------------------
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
   if (
-    !$medFirstname.val().trim() ||
-    !$medLastname.val().trim() ||
-    !$medEmail.val().trim() ||
-    !$medPhone.val().trim() ||
-    !$medUsername.val().trim() ||
-    !$medPassword.val().trim() ||
-    !$medSpecialty.val().trim() ||
-    !$medLicense.val().trim()
+    !$patFirstname.val().trim() ||
+    !$patLastname.val().trim() ||
+    !$patBirthdate.val().trim() ||
+    !$patGender.val().trim() ||
+    !$patEmail.val().trim() ||
+    !$patPhone.val().trim()
   ) {
     swal({
       title: "Wait!",
@@ -92,14 +88,12 @@ var handleFormSubmit = function(event) {
     return;
   }
   var reg = {
-    firstname: $medFirstname.val().trim(),
-    lastname: $medLastname.val().trim(),
-    email: $medEmail.val().trim(),
-    phone: $medPhone.val().trim(),
-    username: $medUsername.val().trim(),
-    password: $medPassword.val().trim(),
-    specialty: $medSpecialty.val().trim(),
-    license: $medLicense.val().trim()
+    firstname: $patFirstname.val().trim(),
+    lastname: $patLastname.val().trim(),
+    birthdate: $patBirthdate.val().trim(),
+    gender: $patGender.val().trim(),
+    email: $patEmail.val().trim(),
+    phone: $patPhone.val().trim()
   };
 
   //  if (!(reg.text && reg.description)) {
@@ -107,35 +101,37 @@ var handleFormSubmit = function(event) {
   //    return;
   //  }
 
-  API.saveMed(reg).then(function() {
-    //refreshMeds();
-    window.location = "/doctorsLogin";
+  API.savePat(reg).then(function() {
+    //refreshPats();
   });
 
-  $medFirstname.val("");
-  $medLastname.val("");
-  $medEmail.val("");
-  $medPhone.val("");
-  $medUsername.val("");
-  $medPassword.val("");
-  $medSpecialty.val("");
-  $medLicense.val("");
+  $patFirstname.val("");
+  $patLastname.val("");
+  $patBirthdate.val("");
+  $patGender.val("");
+  $patEmail.val("");
+  $patPhone.val("");
 };
 
+var submitPrescription = function(){
+  
+};
 //----------------------------------------------------------------------
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
+/*
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteMed(idToDelete).then(function() {
-    refreshMeds();
+  API.deletePat(idToDelete).then(function() {
+    //refreshPats();
   });
 };
-
+*/
 //----------------------------------------------------------------------
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 //$medList.on("click", ".delete", handleDeleteBtnClick);
+$createPrescription.on("click", submitPrescription);

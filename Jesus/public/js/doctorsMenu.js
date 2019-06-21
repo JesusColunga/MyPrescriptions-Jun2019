@@ -9,7 +9,7 @@ if ((medId === null) || (medName === null)) {
 }
 
 $("#nombreMedico").empty();
-$("#nombreMedico").append("Nombre del médico: " + medName);
+$("#nombreMedico").append("Doctor's name: " + medName);
 
 //----------------------------------------------------------------------
 // The API object contains methods for each kind of request we'll make
@@ -86,3 +86,9 @@ var processLogout = function() {
 //----------------------------------------------------------------------
 // Add event listeners to the logout button
 $("#logoutBtn").on("click", processLogout);
+
+$("#patientUlList").on("click", "#patientDetails", function(){
+  var id = $(this).data("id");
+  sessionStorage.setItem("patientId", id);
+  window.location = "/patients/" + id;
+});

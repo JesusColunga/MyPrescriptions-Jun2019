@@ -102,6 +102,12 @@ module.exports = function(app) {
     });
   });
 
+/*  app.post("/api/prescriptions/:id", function(req, res) {
+    db.Prescription.create(req.body).then(function(dbResult) {
+      res.json(dbResult);
+    });
+  });*/
+
   // Delete by id ---------------------
   app.delete("/api/prescriptions/:id", function(req, res) {
     db.Prescription.destroy({ where: { id: req.params.id } }).then(function(
