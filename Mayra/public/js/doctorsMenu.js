@@ -86,3 +86,9 @@ var processLogout = function() {
 //----------------------------------------------------------------------
 // Add event listeners to the logout button
 $("#logoutBtn").on("click", processLogout);
+
+$("#patientDetails").on("click", function(){
+  var id = $(this).data("id");
+  sessionStorage.setItem("patientId", id);
+  window.location = "/patients/" + id;
+});

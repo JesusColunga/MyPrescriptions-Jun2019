@@ -5,7 +5,7 @@
   </div>
 
   <!-- ------------------------------------------------- -->
-  <button  class="btn btn-primary ml-5 mt-3 mb-4" id="logoutBtn"> Logout </button>
+  <button class="btn btn-primary ml-5 mt-3 mb-4" id="logoutBtn"> Logout </button>
   <!-- ------------------------------------------------- -->
 
   <div class="col-6 p-5">
@@ -38,14 +38,12 @@ Editar Paciente. Editar datos de un solo paciente. Botón para enviar a esa form
     <br>
     <ul id="pat-list" class="list-group">
       {{#each recs}}
-      <li data-id="{{this.id}}" class="list-group-item border-0">
-        <a href="patients/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
-        <hr>
-        <!--
-            <button class="btn btn-danger float-right delete">ｘ</button>
-            Click sobre el nombre del paciente para edición
-            -->
+      <li class="list-group-item border-0">
+       {{this.firstname}} {{this.lastname}}
+        
 
+       <button type="button" class="btn btn-info" id="patientDetails" data-id="{{id}}">More Info</button>
+       <hr>
       </li>
       {{/each}}
     </ul>
