@@ -2,13 +2,23 @@
 $(document).ready(function() {
   // Get references to page elements.
   var medId = sessionStorage.getItem("id");
-  var $patientId = $("#patientId");
+  var medName = sessionStorage.getItem("name");
+  var patId = sessionStorage.getItem("patientId");
+  var patName = sessionStorage.getItem("patientName");
+
+  //var $patientId = $("#patientId");
   var $presWeight = $("#pat-weight");
   var $presHeight = $("#pat-height");
   var $presPulse = $("#pat-pulse");
   var $presPrescription = $("#med-prescription");
   var $presObservations = $("#med-observations");
   var $submitBtn = $("#submit");
+
+  $("#patiName").empty();
+  $("#patiName").append("Doctor: " + medId + " - " + medName);
+  $("#patiName").append("<br>");
+  $("#patiName").append("Patient: " + patId + " - " + patName);
+  
   //----------------------------------------------------------------------
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -18,7 +28,7 @@ $(document).ready(function() {
           "Content-Type": "application/json"
         },
         type: "POST",
-        url: "api/prescriptions",
+        url: "/api/prescriptions",
         data: JSON.stringify(record)
       });
     },
@@ -41,6 +51,7 @@ $(document).ready(function() {
 
   var handleFormSubmit = function(event) {
     event.preventDefault();
+    /*
     if (
       !$presWeight.val().trim() ||
       !$presHeight.val().trim() ||
@@ -54,20 +65,21 @@ $(document).ready(function() {
       });
       return;
     }
+    */
     var reg = {
       idDoctor: medId,
-      idPatient: $patientId,
+      idPatient: patId,
       weight: $presWeight.val().trim(),
       height: $presHeight.val().trim(),
       pulse: $presPulse.val().trim(),
       prescription: $presPrescription.val().trim(),
       observations: $presObservations.val().trim()
     };
-    console.log("Registro de la receta, sálvalo, por faa ;;", reg);
+
     API.savePres(reg).then(function() {
       window.location = "/doctorsMenu";
     });
-    console.log("Deberíamos llegar aquí o.ó");
+
     $presWeight.val("");
     $presHeight.val("");
     $presPulse.val("");

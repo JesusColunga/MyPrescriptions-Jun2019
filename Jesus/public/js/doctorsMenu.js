@@ -89,6 +89,8 @@ $("#logoutBtn").on("click", processLogout);
 
 $("#patientUlList").on("click", "#patientDetails", function(){
   var id = $(this).data("id");
+  var name = $(this).data("name");
   sessionStorage.setItem("patientId", id);
+  sessionStorage.setItem("patientName", name);
   window.location = "/patients/" + id;
 });
