@@ -7,6 +7,7 @@ var $medEmail = $("#med-email");
 var $medPhone = $("#med-phone");
 var $medUsername = $("#med-username");
 var $medPassword = $("#med-password");
+var $medSpecialty = $("#med-specialty");
 var $medLicense = $("#med-license");
 
 var $submitBtn = $("#submit");
@@ -80,6 +81,7 @@ var handleFormSubmit = function(event) {
     !$medPhone.val().trim() ||
     !$medUsername.val().trim() ||
     !$medPassword.val().trim() ||
+    !$medSpecialty.val().trim() ||
     !$medLicense.val().trim()
   ) {
     swal({
@@ -96,6 +98,7 @@ var handleFormSubmit = function(event) {
     phone: $medPhone.val().trim(),
     username: $medUsername.val().trim(),
     password: $medPassword.val().trim(),
+    specialty: $medSpecialty.val().trim(),
     license: $medLicense.val().trim()
   };
 
@@ -114,6 +117,7 @@ var handleFormSubmit = function(event) {
   $medPhone.val("");
   $medUsername.val("");
   $medPassword.val("");
+  $medSpecialty.val("");
   $medLicense.val("");
 };
 

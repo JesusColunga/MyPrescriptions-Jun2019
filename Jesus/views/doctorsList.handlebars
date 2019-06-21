@@ -7,11 +7,12 @@
     <ul id="med-list" class="list-group">
       {{#each recs}}
       <li data-id="{{this.id}}" class="list-group-item border-0">
-        <a href="doctors/{{this.id}}"> {{this.firstname}} {{this.lastname}} </a>
+        {{this.firstname}} {{this.lastname}}
+        <br>
+        <b>Specialty: </b> {{this.specialty}}
+        <b>Contact: </b> {{this.email}}
+        <b>Phone Number: </b>{{this.phone}}
         <hr>
-        <!--
-            <button class="btn btn-danger float-right delete">ｘ</button>
-            -->
       </li>
       {{/each}}
     </ul>
@@ -19,6 +20,5 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--
-<script src="/js/index.js"></script>
--->
+
+<script src="/js/doctors.js"></script>

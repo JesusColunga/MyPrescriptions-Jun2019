@@ -46,7 +46,7 @@ module.exports = function(app) {
   });
 
   app.get("/doctorsMenu", function(req, res) {
-    db.Doctor.findAll({}).then(function(dbRecords) {
+    db.Patient.findAll({}).then(function(dbRecords) {
       res.render("doctorsMenu", {
         msg: "Doctors Main Menu",
         recs: dbRecords
@@ -73,6 +73,17 @@ module.exports = function(app) {
       });
     });
   });
+
+  app.get("/patients/:id", function(req, res) {
+    db.Patient.findOne({ where: { id: req.params.id } }).then(function(dbRecords) {
+      res.render("patients", {
+        msg: "Patients Register",
+        recs: dbRecords
+      });
+    });
+  });
+
+  //-----------------------------------------
 
   app.get("/prescriptions", function(req, res) {
     db.Prescription.findAll({}).then(function(dbRecords) {

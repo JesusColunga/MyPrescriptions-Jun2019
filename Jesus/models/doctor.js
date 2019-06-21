@@ -52,6 +52,17 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
+    specialty: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: false,
+        len: {
+          args: [2],
+          msg: "At least 2 characters"
+        }
+      }
+    },
     license: {
       type: DataTypes.STRING,
       allowNull: false,
