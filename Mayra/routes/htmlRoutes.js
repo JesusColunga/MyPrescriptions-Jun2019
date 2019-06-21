@@ -46,7 +46,7 @@ module.exports = function(app) {
   });
 
   app.get("/doctorsMenu", function(req, res) {
-    db.Doctor.findAll({}).then(function(dbRecords) {
+    db.Patient.findAll({}).then(function(dbRecords) {
       res.render("doctorsMenu", {
         msg: "Doctors Main Menu",
         recs: dbRecords

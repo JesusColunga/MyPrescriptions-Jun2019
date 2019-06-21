@@ -51,6 +51,16 @@ module.exports = function(app) {
     });
   });
 
+  // Search one doctor ---------------------
+  app.post("/api/doctorsSearchOne", function(req, res) {
+
+    db.Doctor.findOne({ where: { username: req.body.username, password: req.body.password } }).then(function(
+      dbResult
+    ) {
+      res.json(dbResult);
+    });
+  });
+
   //------------------------------------------------------
   // Patients
   //------------------------------------------------------
@@ -101,6 +111,4 @@ module.exports = function(app) {
     });
   });
 
-  //------------------------------------------------------
-  //------------------------------------------------------
 };
