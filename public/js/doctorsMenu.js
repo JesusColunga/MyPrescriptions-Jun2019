@@ -9,7 +9,7 @@ if ((medId === null) || (medName === null)) {
 }
 
 $("#nombreMedico").empty();
-$("#nombreMedico").append("Doctor's name: " + medName);
+$("#nombreMedico").append("Dr. " + medName);
 
 //----------------------------------------------------------------------
 // The API object contains methods for each kind of request we'll make

@@ -13,11 +13,14 @@ $(document).ready(function() {
   var $presPrescription = $("#med-prescription");
   var $presObservations = $("#med-observations");
   var $submitBtn = $("#submit");
+  var $goBackMenuBtn = $("#algo1");
+
 
   $("#patiName").empty();
-  $("#patiName").append("Doctor: " + medId + " - " + medName);
-  $("#patiName").append("<br>");
-  $("#patiName").append("Patient: " + patId + " - " + patName);
+  $("#doctName").empty();
+  $("#doctName").append("Doctor:<br> " + medId + " - " + medName);
+  $("#patiName").append("Patient:<br> " + patId + " - " + patName);
+  
   
   //----------------------------------------------------------------------
   // The API object contains methods for each kind of request we'll make
@@ -104,7 +107,16 @@ $(document).ready(function() {
   };
   */
   //----------------------------------------------------------------------
+  var processBackMenuDoc = function() {
+      //console.log("proceso para regresar");
+    //window.location = "/doctorsMenu/" + medId;
+    window.location = "/patients/" + patId;
+};
+//----------------------------------------------------------------------
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
   //$medList.on("click", ".delete", handleDeleteBtnClick);
+  $goBackMenuBtn.on("click", "goBack2Menu", processBackMenuDoc);
+
+
 });

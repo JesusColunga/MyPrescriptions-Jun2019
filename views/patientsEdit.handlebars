@@ -1,41 +1,64 @@
 <!-- views/patientsEdit.handlebars -->
 <!--To add patients-->
-<div class="card m-5">
-  <!-- Prescription Log Button-->
-  <button id="prescriptionLog" class="btn btn-primary float-right">Prescription Log</button>
-  <a href="/prescriptions/{{recs.id}}"><button id="createPrescription" class="btn btn-primary float-right">Create Prescription</button></a>
+<div class="card m-5 border-0">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col">
+        <button id="prescriptionLog" class="btn btn-outline-info">Prescription Log</button>
+      </div>
+      <div class="col">
+        <a href="/prescriptions/{{recs.id}}"><button id="createPrescription" class="btn btn-outline-danger">Create
+            Prescription</button></a>
+      </div>
+      <div class="col">
+        <button id="goBackMenu" class="btn btn-outline-info">Return to Main Menu</button>
+      </div>
+    </div>
+  </div>
+  <form class="ml-5">
+    <h5>Edit Patient's Information</h5>
+    <div class="row">
+      <div class="form-group m-2 col-4">
+        <label for="patFirstName">First Name:</label>
+        <input type="text" class="form-control" id="pat-firstname" aria-describedby="patFirstName"
+          placeholder="{{recs.firstname}}">
+      </div>
 
-  <form>
-    <div class="form-group m-2">
-      <label for="patFirstName">First Name:</label>
-      <input type="text" class="form-control" id="pat-firstname" aria-describedby="patFirstName" placeholder="{{recs.firstname}}">
+      <div class="form-group m-2 col-4">
+        <label for="patLastName">Last Name:</label>
+        <input type="text" class="form-control" id="pat-lastname" aria-describedby="patLastName"
+          placeholder="{{recs.lastname}}">
+      </div>
     </div>
-
-    <div class="form-group m-2">
-      <label for="patLastName">Last Name:</label>
-      <input type="text" class="form-control" id="pat-lastname" aria-describedby="patLastName" placeholder="{{recs.lastname}}">
+    <div class="row">
+      <div class="form-group m-2 col-3">
+        <label for="patBirthDate">Birth date: </label>
+        <input type="text" class="form-control" id="pat-birthdate" aria-describedby="patBirthDate"
+          placeholder="{{recs.birthdate}}">
+      </div>
+      <div class="form-group m-2 col-2">
+        <label for="patGender">Gender: </label>
+        <input type="text" class="form-control" id="pat-gender" aria-describedby="patGender"
+          placeholder="{{recs.gender}}">
+      </div>
     </div>
-
-    <div class="form-group m-2">
-      <label for="patBirthDate">Birth date: </label>
-      <input type="text" class="form-control" id="pat-birthdate"  aria-describedby="patBirthDate" placeholder="{{recs.birthdate}}">
+    <div class="row">
+      <div class="form-group m-2 col-4">
+        <label for="patEmail">Email: </label>
+        <input type="email" class="form-control" id="pat-email" aria-describedby="patEmail"
+          placeholder="{{recs.email}}">
+      </div>
+      <div class="form-group m-2 col-4">
+        <label for="patPhone">Phone number: </label>
+        <input type="text" class="form-control" id="pat-phone" aria-describedby="patPhone" placeholder="{{recs.phone}}">
+      </div>
     </div>
-     <div class="form-group m-2">
-      <label for="patGender">Gender: </label>
-      <input type="text" class="form-control" id="pat-gender"  aria-describedby="patGender" placeholder="{{recs.gender}}">
-    </div>
-    <div class="form-group m-2">
-      <label for="patEmail">Email: </label>
-      <input type="email" class="form-control" id="pat-email"  aria-describedby="patEmail" placeholder="{{recs.email}}">
-    </div>
-    <div class="form-group m-2">
-      <label for="patPhone">Phone number: </label>
-      <input type="text" class="form-control" id="pat-phone"  aria-describedby="patPhone" placeholder="{{recs.phone}}">
-    </div>
-    <button type="submit" id="updatePatient" class="btn btn-primary float-right">Update</button>
+    <!--
+    <button type="submit" id="updatePatient" class="btn btn-primary float-left mt-5">Update Information</button>
+    -->
   </form>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="/js/patientsEdit.js"></script>
