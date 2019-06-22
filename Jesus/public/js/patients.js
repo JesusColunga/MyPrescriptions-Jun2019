@@ -9,6 +9,9 @@ var $patEmail = $("#pat-email");
 var $patPhone = $("#pat-phone");
 
 var $submitBtn = $("#submit");
+var $goBackMenuBtn = $("#goBackMenu");
+var medId = sessionStorage.getItem("id");
+
 //----------------------------------------------------------------------
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -128,6 +131,11 @@ var handleDeleteBtnClick = function() {
 };
 */
 //----------------------------------------------------------------------
+var processBackMenuDoc = function() {
+    window.location = "/doctorsMenu/" + medId;
+};
+//----------------------------------------------------------------------
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
+$goBackMenuBtn.on("click", processBackMenuDoc);
 //$medList.on("click", ".delete", handleDeleteBtnClick);

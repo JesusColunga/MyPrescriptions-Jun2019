@@ -97,7 +97,6 @@ module.exports = function(app) {
 
   // Create ---------------------------
   app.post("/api/prescriptions", function(req, res) {
-console.log("body(apiRoutes):", req.body);
     db.Prescription.create(req.body).then(function(dbResult) {
       res.json(dbResult);
     });

@@ -53,7 +53,7 @@ var refreshMeds = function(regMed) {
     sessionStorage.clear();
     sessionStorage.setItem("id", regMed.id);
     sessionStorage.setItem("name", regMed.firstname + " " + regMed.lastname);
-    window.location = "/doctorsMenu";
+    window.location = "/doctorsMenu/" + regMed.id;
   }
 };
 

@@ -45,8 +45,8 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/doctorsMenu", function (req, res) {
-    db.Patient.findAll({}).then(function (dbRecords) {
+  app.get("/doctorsMenu/:id", function (req, res) {
+    db.Patient.findAll({ where: { id: req.params.id } }).then(function (dbRecords) {
       res.render("doctorsMenu", {
         msg: "Doctors Main Menu",
         recs: dbRecords
