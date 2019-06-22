@@ -73,11 +73,12 @@ $(document).ready(function() {
       height: $presHeight.val().trim(),
       pulse: $presPulse.val().trim(),
       prescription: $presPrescription.val().trim(),
-      observations: $presObservations.val().trim()
+      observations: $presObservations.val().trim(),
+      PatientId: patId
     };
 
     API.savePres(reg).then(function() {
-      window.location = "/doctorsMenu";
+      window.location = "/doctorsMenu/" + medId;
     });
 
     $presWeight.val("");
