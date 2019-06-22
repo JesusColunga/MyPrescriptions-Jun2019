@@ -19,6 +19,7 @@ $(document).ready(function() {
   $("#doctName").append("Doctor:<br> " + medId + " - " + medName);
   $("#patiName").append("Patient:<br> " + patId + " - " + patName);
   
+  
   //----------------------------------------------------------------------
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -78,7 +79,8 @@ $(document).ready(function() {
     };
 
     API.savePres(reg).then(function() {
-      window.location = "/doctorsMenu/" + medId;
+      //window.location = "/doctorsMenu/" + medId;
+      window.location = "/patients/" + patId;
     });
 
     $presWeight.val("");

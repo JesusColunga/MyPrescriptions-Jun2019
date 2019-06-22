@@ -96,7 +96,8 @@ var handleFormSubmit = function(event) {
     birthdate: $patBirthdate.val().trim(),
     gender: $patGender.val().trim(),
     email: $patEmail.val().trim(),
-    phone: $patPhone.val().trim()
+    phone: $patPhone.val().trim(),
+    DoctorId: medId
   };
 
   //  if (!(reg.text && reg.description)) {
