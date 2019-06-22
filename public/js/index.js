@@ -1,37 +1,32 @@
-// public/js/medicos.js
+// public/js/index.js
 
 // Get references to page elements
-var $medName = $("#med-name");
-var $medEmail = $("#med-email");
-var $medPhone = $("#med-phone");
-var $medUsername = $("#med-username");
-var $medPassword = $("#med-password");
-var $medLicense = $("#med-license");
-
+var $exampleText = $("#example-text");
+var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-var $medList = $("#med-list");
+var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveMed: function(example) {
+  saveExample: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/doctors",
+      url: "api/examples",
       data: JSON.stringify(example)
     });
   },
-  getMed: function() {
+  getExamples: function() {
     return $.ajax({
-      url: "api/doctors",
+      url: "api/examples",
       type: "GET"
     });
   },
-  deleteMed: function(id) {
+  deleteExample: function(id) {
     return $.ajax({
-      url: "api/doctors/" + id,
+      url: "api/examples/" + id,
       type: "DELETE"
     });
   }
@@ -39,16 +34,16 @@ var API = {
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
-  API.getMed().then(function(data) {
-    var $registros = data.map(function(reg) {
+  API.getExamples().then(function(data) {
+    var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(reg.nombre)
-        .attr("href", "/example/" + reg.id);
+        .text(example.text)
+        .attr("href", "/example/" + example.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": reg.id
+          "data-id": example.id
         })
         .append($a);
 
@@ -62,7 +57,7 @@ var refreshExamples = function() {
     });
 
     $exampleList.empty();
-    $exampleList.append($registros);
+    $exampleList.append($examples);
   });
 };
 

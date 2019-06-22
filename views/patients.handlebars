@@ -1,0 +1,38 @@
+<!-- views/patients.handlebars -->
+<!--To add patients-->
+<button  id="goBackMenu" class="btn btn-primary float-right">Return to Main Menu</button>
+<div class="card m-5">
+  <form>
+    <div class="form-group m-2">
+      <label for="patFirstName">First Name:</label>
+      <input type="text" class="form-control" id="pat-firstname" aria-describedby="patFirstName" placeholder="John">
+    </div>
+
+    <div class="form-group m-2">
+      <label for="patLastName">Last Name:</label>
+      <input type="text" class="form-control" id="pat-lastname" aria-describedby="patLastName" placeholder="Doe">
+    </div>
+
+    <div class="form-group m-2">
+      <label for="patBirthDate">Birth date: </label>
+      <input type="text" class="form-control" id="pat-birthdate"  aria-describedby="patBirthDate" placeholder="05/12/1980">
+    </div>
+     <div class="form-group m-2">
+      <label for="patGender">Gender: </label>
+      <input type="text" class="form-control" id="pat-gender"  aria-describedby="patGender" placeholder="M/F">
+    </div>
+    <div class="form-group m-2">
+      <label for="patEmail">Email: </label>
+      <input type="email" class="form-control" id="pat-email"  aria-describedby="patEmail" placeholder="example@mail.com">
+    </div>
+    <div class="form-group m-2">
+      <label for="patPhone">Phone number: </label>
+      <input type="text" class="form-control" id="pat-phone"  aria-describedby="patPhone" placeholder="555-555-5555">
+    </div>
+    <button type="submit" id="submit" class="btn btn-primary float-right">Submit</button>
+  </form>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/js/patients.js"></script>

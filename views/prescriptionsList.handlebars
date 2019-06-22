@@ -1,0 +1,34 @@
+<!-- views/prescriptionsList.handlebars -->
+<!-- Listado de recetas anteriores -->
+
+<div class="row">
+  <a href="/prescriptions"><button class="btn btn-danger float-right delete">New Prescription</button></a>
+  <div class="col-8 offset-2">
+    <p> Previous Prescriptions:</p>
+    <br>
+    <ul id="pres-list" class="list-group">
+      {{#each recs}}
+      <li data-id="{{this.id}}" class="list-group-item border-0">
+        <div class="row">
+          <div class="col-7">
+          <a href="prescriptions/{{this.id}}"> {{this.firstname}} {{this.lastname}}</a>
+          <div class="col-5">
+            {{this.createdAt}}
+            </div>
+        </div>
+
+        <!--
+            Recetas por fecha
+            Click sobre una una fecha para ir a una modal para ver la receta. 
+            Agregar Ventana Modal para recetas
+            -->
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--
+<script src="/js/index.js"></script>
+-->
