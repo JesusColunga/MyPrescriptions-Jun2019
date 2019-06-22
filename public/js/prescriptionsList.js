@@ -1,18 +1,12 @@
 // public/js/prescriptions.js
 $(document).ready(function() {
+
   // Get references to page elements.
   var medId = sessionStorage.getItem("id");
   var medName = sessionStorage.getItem("name");
   var patId = sessionStorage.getItem("patientId");
   var patName = sessionStorage.getItem("patientName");
 
-  //var $patientId = $("#patientId");
-  var $presWeight = $("#pat-weight");
-  var $presHeight = $("#pat-height");
-  var $presPulse = $("#pat-pulse");
-  var $presPrescription = $("#med-prescription");
-  var $presObservations = $("#med-observations");
-  var $submitBtn = $("#submit");
   var $goBackMenuBtn = $("#algo1");
 
   $("#patiName").empty();
@@ -49,6 +43,7 @@ $(document).ready(function() {
   var processBackMenuDoc = function() {
     window.location = "/patients/" + patId;
 };
+
 //----------------------------------------------------------------------
   // Add event listeners to the submit and delete buttons
   $goBackMenuBtn.on("click", "goBack2Menu", processBackMenuDoc);

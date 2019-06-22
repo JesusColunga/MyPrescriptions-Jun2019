@@ -8,10 +8,12 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false
       },
+
       idPatient: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
+
       weight: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -23,15 +25,18 @@ module.exports = function(sequelize, DataTypes) {
           }
         }
       },
+
       height: {
         type: DataTypes.STRING,
         allowNull: false,
         isNumeric: true
       },
+
       pulse: {
         allowNull: false,
         type: DataTypes.STRING
       },
+
       prescription: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -43,6 +48,7 @@ module.exports = function(sequelize, DataTypes) {
           }
         }
       },
+
       observations: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -55,6 +61,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
+
     {
       tableName: "Prescriptions"
     }

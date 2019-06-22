@@ -40,6 +40,7 @@ var API = {
 };
 
 //----------------------------------------------------------------------
+//Submit, create reg, and clears form fields
 var handleFormSubmit = function(event) {
   event.preventDefault();
   if (
@@ -67,8 +68,7 @@ var handleFormSubmit = function(event) {
     DoctorId: medId
   };
 
-  API.savePat(reg).then(function() {
-  });
+  API.savePat(reg).then(function() {});
 
   $patFirstname.val("");
   $patLastname.val("");
@@ -79,6 +79,7 @@ var handleFormSubmit = function(event) {
 };
 
 //----------------------------------------------------------------------
+//Back button
 var processBackMenuDoc = function() {
   window.location = "/doctorsMenu/" + medId;
 };

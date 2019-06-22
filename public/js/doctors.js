@@ -12,7 +12,9 @@ var $medLicense = $("#med-license");
 
 var $submitBtn = $("#submit");
 var $medList = $("#med-list");
+
 //----------------------------------------------------------------------
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveMed: function(record) {
@@ -40,6 +42,7 @@ var API = {
 };
 
 //----------------------------------------------------------------------
+
 // refreshMeds gets new examples from the db and repopulates the list
 var refreshMeds = function() {
   API.getMed().then(function(data) {
@@ -70,6 +73,8 @@ var refreshMeds = function() {
 };
 
 //----------------------------------------------------------------------
+
+//Submit information, create reg and clears form.
 var handleFormSubmit = function(event) {
   event.preventDefault();
   if (
@@ -126,5 +131,6 @@ var handleDeleteBtnClick = function() {
 };
 
 //----------------------------------------------------------------------
+
 // Add event listeners
 $submitBtn.on("click", handleFormSubmit);

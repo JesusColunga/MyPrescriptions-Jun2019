@@ -7,9 +7,9 @@ var $patBirthdate = $("#pat-birthdate");
 var $patGender = $("#pat-gender");
 var $patEmail = $("#pat-email");
 var $patPhone = $("#pat-phone");
-var $submitBtn = $("#submit");
+//var $submitBtn = $("#submit");
 var $backBtn = $("#goBackMenu");
-var $createPrescription = $("#createPrescription");
+//var $createPrescription = $("#createPrescription");
 var medId = sessionStorage.getItem("id");
 var patId = sessionStorage.getItem("patientId");
 var $prescLog = $("#prescriptionLog");
@@ -42,6 +42,7 @@ var API = {
 };
 
 //----------------------------------------------------------------------
+//Submit, create reg, and clears form fields
 var handleFormSubmit = function(event) {
   event.preventDefault();
   if (
@@ -68,8 +69,7 @@ var handleFormSubmit = function(event) {
     phone: $patPhone.val().trim()
   };
 
-  API.savePat(reg).then(function() {
-  });
+  API.savePat(reg).then(function() {});
 
   $patFirstname.val("");
   $patLastname.val("");
@@ -79,13 +79,13 @@ var handleFormSubmit = function(event) {
   $patPhone.val("");
 };
 
-var submitPrescription = function(){
-};
 //----------------------------------------------------------------------
+//Back button
 var processBackMenuDoc = function() {
   window.location = "/doctorsMenu/" + medId;
 };
 //----------------------------------------------------------------------
+//Presctiption Log button
 var processPrescLog = function() {
   window.location = "/prescriptions/" + medId + "/" + patId;
 };

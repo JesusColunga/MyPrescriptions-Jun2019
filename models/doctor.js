@@ -31,16 +31,19 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       isEmail: true
     },
+
     phone: {
       type: DataTypes.STRING,
       allowNull: false,
       isNumeric: true
     },
+
     username: {
       type: DataTypes.STRING,
       isAlphanumeric: true,
       allowNull: false
     },
+
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -52,6 +55,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
+
     specialty: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -63,6 +67,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
+
     license: {
       type: DataTypes.STRING,
       allowNull: false,

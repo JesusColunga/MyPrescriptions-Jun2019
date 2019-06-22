@@ -21,12 +21,12 @@ describe("POST /api/examples", function() {
     // Create an object to send to the endpoint
     var reqBody = {
       firstname: "Redell",
-    lastname: "Thares",
-    email: "redell@gmail.com",
-    phone: "5555555555",
-    username: "redell",
-    password: "456789",
-    license: "Something"
+      lastname: "Thares",
+      email: "redell@gmail.com",
+      phone: "5555555555",
+      username: "redell",
+      password: "456789",
+      license: "Something"
     };
 
     // POST the request body to the server

@@ -12,6 +12,7 @@ $("#nombreMedico").empty();
 $("#nombreMedico").append("Dr. " + medName);
 
 //----------------------------------------------------------------------
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   savePat: function(record) {
@@ -39,6 +40,7 @@ var API = {
 };
 
 //----------------------------------------------------------------------
+//Submit, create reg, and clears form fields
 var handleFormSubmit = function(event) {
   event.preventDefault();
   if (
@@ -77,6 +79,7 @@ var handleFormSubmit = function(event) {
 };
 
 //----------------------------------------------------------------------
+//Log out
 var processLogout = function() {
   sessionStorage.clear();
   window.location = "/";

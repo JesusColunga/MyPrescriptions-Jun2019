@@ -6,6 +6,7 @@ var $medPassword = $("#password");
 
 var $submitBtn = $("#submit");
 //----------------------------------------------------------------------
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveMed: function(record) {
@@ -57,26 +58,9 @@ var refreshMeds = function(regMed) {
 };
 
 //----------------------------------------------------------------------
+//Submit, create reg, and clears form fields
 var handleFormSubmit = function(event) {
   event.preventDefault();
-  /*
-  if (
-    !$medFirstname.val().trim() ||
-    !$medLastname.val().trim() ||
-    !$medEmail.val().trim() ||
-    !$medPhone.val().trim() ||
-    !$medUsername.val().trim() ||
-    !$medPassword.val().trim() ||
-    !$medLicense.val().trim()
-  ) {
-    swal({
-      title: "Wait!",
-      text: "Please fill all the fields with the requested information",
-      icon: "error"
-    });
-    return;
-  }
-  */
 
   var reg = {
     username: $medUsername.val().trim(),

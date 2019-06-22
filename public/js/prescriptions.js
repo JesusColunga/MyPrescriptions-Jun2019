@@ -1,4 +1,5 @@
 // public/js/prescriptions.js
+
 $(document).ready(function() {
   // Get references to page elements.
   var medId = sessionStorage.getItem("id");
@@ -48,6 +49,7 @@ $(document).ready(function() {
   };
 
   // ----------------------------------------------
+  // Submit, create reg, and clears form fields
   var handleFormSubmit = function(event) {
     event.preventDefault();
     var reg = {
@@ -72,13 +74,14 @@ $(document).ready(function() {
     $presObservations.val("");
   };
 
-  //----------------------------------------------------------------------
+  //---------------------------------------------------------------------
+  // Back Menu button
   var processBackMenuDoc = function() {
     window.location = "/patients/" + patId;
   };
-//----------------------------------------------------------------------
+
+  //----------------------------------------------------------------------
   // Add event listeners
   $submitBtn.on("click", handleFormSubmit);
   $goBackMenuBtn.on("click", "goBack2Menu", processBackMenuDoc);
-
 });
