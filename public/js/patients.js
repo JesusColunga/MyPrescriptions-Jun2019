@@ -40,39 +40,6 @@ var API = {
 };
 
 //----------------------------------------------------------------------
-// refreshMeds gets new examples from the db and repopulates the list
-/*
-var refreshPats = function() {
-  API.getPat().then(function(data) {
-    var $registros = data.map(function(reg) {
-      var $a = $("<a>")
-        .text(reg.firstname + " " + reg.lastname)
-        .attr("href", "/doctors/" + reg.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": reg.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $medList.empty();
-    $medList.append($registros);
-  });
-};
-*/
-//----------------------------------------------------------------------
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
   if (
@@ -100,13 +67,7 @@ var handleFormSubmit = function(event) {
     DoctorId: medId
   };
 
-  //  if (!(reg.text && reg.description)) {
-  //    alert("You must enter an example text and description!");
-  //    return;
-  //  }
-
   API.savePat(reg).then(function() {
-    //refreshPats();
   });
 
   $patFirstname.val("");
@@ -118,25 +79,10 @@ var handleFormSubmit = function(event) {
 };
 
 //----------------------------------------------------------------------
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-/*
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deletePat(idToDelete).then(function() {
-    //refreshPats();
-  });
-};
-*/
-//----------------------------------------------------------------------
 var processBackMenuDoc = function() {
-    window.location = "/doctorsMenu/" + medId;
+  window.location = "/doctorsMenu/" + medId;
 };
 //----------------------------------------------------------------------
-// Add event listeners to the submit and delete buttons
+// Add event listeners
 $submitBtn.on("click", handleFormSubmit);
 $goBackMenuBtn.on("click", processBackMenuDoc);
-//$medList.on("click", ".delete", handleDeleteBtnClick);

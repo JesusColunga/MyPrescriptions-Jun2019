@@ -66,7 +66,6 @@ var handleFormSubmit = function(event) {
   };
 
   API.savePat(reg).then(function() {
-    //refreshPats();
   });
 
   $patFirstname.val("");
@@ -84,7 +83,7 @@ var processLogout = function() {
 };
 
 //----------------------------------------------------------------------
-// Add event listeners to the logout button
+// Add event listeners
 $("#logoutBtn").on("click", processLogout);
 
 $("#patientUlList").on("click", "#patientDetails", function(){

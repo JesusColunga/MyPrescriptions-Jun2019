@@ -70,8 +70,6 @@ var refreshMeds = function() {
 };
 
 //----------------------------------------------------------------------
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
   if (
@@ -102,13 +100,7 @@ var handleFormSubmit = function(event) {
     license: $medLicense.val().trim()
   };
 
-  //  if (!(reg.text && reg.description)) {
-  //    alert("You must enter an example text and description!");
-  //    return;
-  //  }
-
   API.saveMed(reg).then(function() {
-    //refreshMeds();
     window.location = "/doctorsLogin";
   });
 
@@ -123,8 +115,6 @@ var handleFormSubmit = function(event) {
 };
 
 //----------------------------------------------------------------------
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
@@ -136,6 +126,5 @@ var handleDeleteBtnClick = function() {
 };
 
 //----------------------------------------------------------------------
-// Add event listeners to the submit and delete buttons
+// Add event listeners
 $submitBtn.on("click", handleFormSubmit);
-//$medList.on("click", ".delete", handleDeleteBtnClick);

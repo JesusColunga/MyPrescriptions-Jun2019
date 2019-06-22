@@ -45,74 +45,12 @@ $(document).ready(function() {
     }
   };
 
-  // handleFormSubmit is called whenever we submit a new example
-  // Save the new example to the db and refresh the list
-/*
-  var handleFormSubmit = function(event) {
-    event.preventDefault();
-    /*
-    if (
-      !$presWeight.val().trim() ||
-      !$presHeight.val().trim() ||
-      !$presPulse.val().trim() ||
-      !$presPrescription.val().trim()
-    ) {
-      swal({
-        title: "Wait!",
-        text: "Please fill all the fields with the requested information",
-        icon: "error"
-      });
-      return;
-    }
-    * /
-    var reg = {
-      idDoctor: medId,
-      idPatient: patId,
-      weight: $presWeight.val().trim(),
-      height: $presHeight.val().trim(),
-      pulse: $presPulse.val().trim(),
-      prescription: $presPrescription.val().trim(),
-      observations: $presObservations.val().trim(),
-      PatientId: patId
-    };
-
-    API.savePres(reg).then(function() {
-      //window.location = "/doctorsMenu/" + medId;
-      window.location = "/patients/" + patId;
-    });
-
-    $presWeight.val("");
-    $presHeight.val("");
-    $presPulse.val("");
-    $presPrescription.val("");
-    $presObservations.val("");
-  };
-*/
-  //----------------------------------------------------------------------
-  // handleDeleteBtnClick is called when an example's delete button is clicked
-  // Remove the example from the db and refresh the list
-  /*
-  var handleDeleteBtnClick = function() {
-    var idToDelete = $(this)
-      .parent()
-      .attr("data-id");
-  
-    API.deletePat(idToDelete).then(function() {
-      //refreshPats();
-    });
-  };
-  */
   //----------------------------------------------------------------------
   var processBackMenuDoc = function() {
-      //console.log("proceso para regresar");
-    //window.location = "/doctorsMenu/" + medId;
     window.location = "/patients/" + patId;
 };
 //----------------------------------------------------------------------
   // Add event listeners to the submit and delete buttons
-  //$submitBtn.on("click", handleFormSubmit);
-  //$medList.on("click", ".delete", handleDeleteBtnClick);
   $goBackMenuBtn.on("click", "goBack2Menu", processBackMenuDoc);
-
 
 });

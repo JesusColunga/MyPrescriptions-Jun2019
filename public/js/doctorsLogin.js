@@ -44,7 +44,6 @@ var API = {
 
 //----------------------------------------------------------------------
 var refreshMeds = function(regMed) {
-  //console.log("Registro de respuesta del login:", regMed); // es null o un objeto: {id: 1, firstname: "uno", lastname: "uno", email: "uno@uno.com", phone: "555-555-5555", …}
   $("#username").empty();
   $("#password").empty();
   if (regMed === null) {
@@ -93,17 +92,5 @@ var handleFormSubmit = function(event) {
 };
 
 //----------------------------------------------------------------------
-/*
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteMed(idToDelete).then(function() {
-    refreshMeds();
-  });
-};
-*/
-//----------------------------------------------------------------------
-// Add event listeners to the submit button
+// Add event listeners
 $submitBtn.on("click", handleFormSubmit);
