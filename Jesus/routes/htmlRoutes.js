@@ -85,10 +85,15 @@ module.exports = function (app) {
 
   //-----------------------------------------
 
-  app.get("/prescriptions", function (req, res) {
-    db.Prescription.findAll({}).then(function (dbRecords) {
-      res.render("prescriptions", {
-        msg: "Prescriptions Register",
+  app.get("/prescriptions/:dId/:pId", function (req, res) {
+      console.log("(htmlRoutes)", req.params.dId, req.params.pId);
+    db.Prescription.findAll({ 
+        where: { 
+            idDoctor: req.params.dId,
+            idPatient: req.params.pId }
+         }).then(function (dbRecords) {
+      res.render("prescriptionsList", {
+        msg: "Prescriptions Log",
         recs: dbRecords
       });
     });

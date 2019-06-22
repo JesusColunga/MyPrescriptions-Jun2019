@@ -12,11 +12,23 @@ body, html {
   /* The image used */
   background-image: url("../img/image01.png");
   /* Full height */
-  height: 35%;
+  height: 30%;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
+}
+
+.dLogin{
+  width: 500px;
+}
+
+.diSignin{
+  margin-top: 5rem;
+}
+
+.loginWindow{
+  background: rgba(14, 84, 175, 0.05);
 }

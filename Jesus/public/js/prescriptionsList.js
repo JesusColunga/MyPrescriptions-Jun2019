@@ -15,13 +15,9 @@ $(document).ready(function() {
   var $submitBtn = $("#submit");
   var $goBackMenuBtn = $("#algo1");
 
-
   $("#patiName").empty();
-  $("#doctName").empty();
-  $("#doctName").append("Doctor:<br> " + medId + " - " + medName);
-  $("#patiName").append("Patient:<br> " + patId + " - " + patName);
-  
-  
+  $("#patiName").append("Prescriptions for " + patId + " - " + patName + ":");
+
   //----------------------------------------------------------------------
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -51,7 +47,7 @@ $(document).ready(function() {
 
   // handleFormSubmit is called whenever we submit a new example
   // Save the new example to the db and refresh the list
-
+/*
   var handleFormSubmit = function(event) {
     event.preventDefault();
     /*
@@ -68,7 +64,7 @@ $(document).ready(function() {
       });
       return;
     }
-    */
+    * /
     var reg = {
       idDoctor: medId,
       idPatient: patId,
@@ -91,7 +87,7 @@ $(document).ready(function() {
     $presPrescription.val("");
     $presObservations.val("");
   };
-
+*/
   //----------------------------------------------------------------------
   // handleDeleteBtnClick is called when an example's delete button is clicked
   // Remove the example from the db and refresh the list
@@ -114,7 +110,7 @@ $(document).ready(function() {
 };
 //----------------------------------------------------------------------
   // Add event listeners to the submit and delete buttons
-  $submitBtn.on("click", handleFormSubmit);
+  //$submitBtn.on("click", handleFormSubmit);
   //$medList.on("click", ".delete", handleDeleteBtnClick);
   $goBackMenuBtn.on("click", "goBack2Menu", processBackMenuDoc);
 

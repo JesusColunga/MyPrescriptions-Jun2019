@@ -8,7 +8,12 @@ var $patGender = $("#pat-gender");
 var $patEmail = $("#pat-email");
 var $patPhone = $("#pat-phone");
 var $submitBtn = $("#submit");
+var $backBtn = $("#goBackMenu");
 var $createPrescription = $("#createPrescription");
+var medId = sessionStorage.getItem("id");
+var patId = sessionStorage.getItem("patientId");
+var $prescLog = $("#prescriptionLog");
+
 //----------------------------------------------------------------------
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -131,7 +136,18 @@ var handleDeleteBtnClick = function() {
 };
 */
 //----------------------------------------------------------------------
+var processBackMenuDoc = function() {
+    window.location = "/doctorsMenu/" + medId;
+};
+//----------------------------------------------------------------------
+var processPrescLog = function() {
+    window.location = "/prescriptions/" + medId + "/" + patId;
+};
+//----------------------------------------------------------------------
+
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+//$submitBtn.on("click", handleFormSubmit);
+$backBtn.on("click", processBackMenuDoc);   // Return to main menu
 //$medList.on("click", ".delete", handleDeleteBtnClick);
-$createPrescription.on("click", submitPrescription);
+//$createPrescription.on("click", submitPrescription);   // Prescription Log
+$prescLog.on("click", processPrescLog);
