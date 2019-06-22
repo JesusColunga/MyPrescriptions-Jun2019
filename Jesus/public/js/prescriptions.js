@@ -78,7 +78,8 @@ $(document).ready(function() {
     };
 
     API.savePres(reg).then(function() {
-      window.location = "/doctorsMenu/" + medId;
+      //window.location = "/doctorsMenu/" + medId;
+      window.location = "/patients/" + patId;
     });
 
     $presWeight.val("");
